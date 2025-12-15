@@ -1,9 +1,9 @@
-import { View, Text } from 'react-native';
+import { isFirstRun, userName } from "@/utils/storage";
 import MaskedView from "@react-native-masked-view/masked-view";
 import { LinearGradient } from "expo-linear-gradient";
-import { userName, isFirstRun } from "@/utils/storage";
-import { useEffect, useState } from "react";
 import { router } from "expo-router";
+import { useEffect, useState } from "react";
+import { Text, View } from 'react-native';
 
 export default function HomeScreen() {
   const [name, setName] = useState<string | null>(null);
@@ -42,7 +42,7 @@ export default function HomeScreen() {
         }
       >
         <LinearGradient
-          colors={["#DFA196", "#B75B56", "#270909ff"]}
+          colors={["#DFA196", "#B75B56", "#7B141E"]}
           start={{ x: 0, y: 1 }}
           end={{ x: 1, y: 2}}
         >
