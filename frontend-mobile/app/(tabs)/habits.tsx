@@ -12,7 +12,7 @@ export default function HabitsScreen() {
               fontSize: 30,
               fontWeight: "bold",
               color: '#CB7D74',
-              marginTop: 80,
+              marginTop: 60,
             }}
           >
             Habits Screen
