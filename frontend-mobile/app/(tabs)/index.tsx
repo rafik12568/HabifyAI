@@ -63,7 +63,7 @@ export default function HomeScreen() {
           <Text style={{ fontSize: 40 }}>🔥</Text>
           <Text style={{ fontSize: 20, color: 'white' }}>Streak</Text> 
           {/*tu mozesz dodac gradient w kolorach emotek do wszystkich napisow*/}
-          <Text style={{ fontSize: 10, color: 'gray' }}>Building...</Text>
+          <Text style={{ fontSize: 10, color: 'gray' }}>Work in progress...</Text>
         </View>
         <Pressable onPress={() => router.push("/habits")}
         style={({ pressed }) => ({
