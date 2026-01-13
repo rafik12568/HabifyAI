@@ -31,12 +31,12 @@ export default function RootLayout() {
     <View
       style={{
         flex: 1,
-        backgroundColor: '#171616ff',
+        backgroundColor: '#301515ff',
         paddingBottom: insets.bottom,
       }}
     >
       <Stack initialRouteName={initial} screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false, contentStyle: { backgroundColor: "#171616ff" } }} />
+        <Stack.Screen name="(tabs)" options={{ headerShown: false, contentStyle: { backgroundColor: "#301515ff" } }} />
         <Stack.Screen name="onboarding" options={{ headerShown: false }} />
       </Stack>
     </View>

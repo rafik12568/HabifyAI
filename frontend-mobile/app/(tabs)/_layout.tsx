@@ -11,7 +11,7 @@ export default function TabsLayout() {
       screenOptions={{
         headerShown: false,
         tabBarStyle: {
-          backgroundColor: "#171616ff",
+          backgroundColor: "#301515ff",
           borderRadius: 10,
           borderColor: "none",
           margin: 2,
@@ -23,7 +23,7 @@ export default function TabsLayout() {
         ),
         tabBarItemStyle: {
           borderRadius: 10,
-          backgroundColor: "#333131ff",
+          backgroundColor: "#5f24249a",
           height: "100%",
           marginHorizontal: "1%",
           paddingTop: 0,
@@ -43,10 +43,10 @@ export default function TabsLayout() {
                 flex: 1,
                 borderRadius: 10,
                 backgroundColor: pressed
-                  ? "#262424ff"
+                  ? "#3c17179a"
                   : accessibilityState?.selected
                   ? "#2E2C2Cff"
-                  : "#333131ff",
+                  : "#5f24249a",
                 marginHorizontal: "1%",
                 paddingTop: 4,
                 justifyContent: "center",
@@ -71,10 +71,10 @@ export default function TabsLayout() {
                 flex: 1,
                 borderRadius: 10,
                 backgroundColor: pressed
-                  ? "#262424ff"
+                  ? "#3c17179a"
                   : accessibilityState?.selected
                   ? "#2E2C2Cff"
-                  : "#333131ff",
+                  : "#5f24249a",
                 marginHorizontal: "1%",
                 paddingTop: 4,
                 justifyContent: "center",
@@ -99,10 +99,10 @@ export default function TabsLayout() {
                 flex: 1,
                 borderRadius: 10,
                 backgroundColor: pressed
-                  ? "#262424ff"
+                  ? "#3c17179a"
                   : accessibilityState?.selected
                   ? "#2E2C2Cff"
-                  : "#333131ff",
+                  : "#5f24249a",
                 marginHorizontal: "1%",
                 paddingTop: 4,
                 justifyContent: "center",

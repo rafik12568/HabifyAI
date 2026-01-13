@@ -66,9 +66,9 @@ export default function HomeScreen() {
         {/* tutaj w prawym górnym ikonka dzwonka z ustawieniami powiadomień */}
       </View>
       <View style={{ marginTop: 15, width: '90%', height: '80%', backgroundColor: '#411e1eff', borderRadius: 10, padding: '5%', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around' }}>
-        <View style={{ backgroundColor: '#832f2f9a', borderRadius: 10, marginBottom: 10, width: '100%', height: '23%', flexDirection: 'column', flexWrap: 'wrap-reverse' }} >
-          <Text style={{ fontSize: 70, textAlign: "right", paddingRight: 10, paddingLeft: 5, paddingTop: 5 }}>🔥</Text>
-          <MaskedView
+        <View style={{ backgroundColor: '#832f2f9a', borderRadius: 10, marginBottom: 10, width: '100%', height: '23%', flexDirection: 'row', justifyContent: 'space-around', paddingHorizontal: "3%" }}>
+          <View>
+              <MaskedView
             maskElement={
               <Text style={{ fontSize: 30, color: 'white', paddingRight: 90, justifyContent: 'flex-start', paddingTop: 7, fontWeight: "bold"  }}>Streak</Text>
             }
@@ -81,8 +81,10 @@ export default function HomeScreen() {
               <Text style={{ fontSize: 30, paddingRight: 90, justifyContent: 'flex-start', paddingTop: 7, fontWeight: "bold", opacity: 0  }}>Streak</Text>
             </LinearGradient>
             </MaskedView> 
-          {/*tu mozesz dodac gradient w kolorach emotek do wszystkich napisow*/}
-          <Text style={{ fontSize: 15, color: 'white', opacity: 0.5 }}>Work in progress...</Text>
+
+            <Text style={{ fontSize: 15, color: 'white', opacity: 0.5 }}>Work in progress...</Text>
+          </View>
+          <Text style={{ fontSize: 70, textAlign: "right", paddingRight: 10, paddingLeft: 5, paddingTop: 5 }}>🔥</Text>
         </View>
         <Pressable onPress={() => router.push("/habits")}
         style={({ pressed }) => ({
@@ -91,11 +93,12 @@ export default function HomeScreen() {
           marginBottom: 10,
           width: '100%',
           height: '23%',
-          flexDirection: 'column',
-          flexWrap: 'wrap-reverse'
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          paddingHorizontal: "3%",
         })} >
-          <Text style={{ fontSize: 65, textAlign: "right", paddingRight: 10, paddingLeft: 5, paddingTop: 10 }}>✅</Text>
-          <MaskedView
+          <View>
+            <MaskedView
             maskElement={
               <Text style={{ fontSize: 30, color: 'white', paddingRight: 90, justifyContent: 'flex-start', paddingTop: 7, fontWeight: "bold"  }}>Habits</Text>
             }
@@ -108,7 +111,10 @@ export default function HomeScreen() {
               <Text style={{ fontSize: 30, paddingRight: 90, justifyContent: 'flex-start', paddingTop: 7, fontWeight: "bold", opacity: 0  }}>Habits</Text>
             </LinearGradient>
             </MaskedView> 
+
             <Text style={{ fontSize: 15, color: 'white', opacity: 0.8 }}>Press to see your habits!</Text>
+          </View>
+          <Text style={{ fontSize: 65, textAlign: "right", paddingRight: 10, paddingLeft: 5, paddingTop: 10 }}>✅</Text>
         </Pressable>
         <Pressable onPress={() => router.push("/profile")}
         style={({ pressed }) => ({
@@ -116,12 +122,12 @@ export default function HomeScreen() {
           borderRadius: 10,
           marginBottom: 10,
           width: '100%',
-          height: '23%',
-          flexDirection: 'column',
-          flexWrap: 'wrap-reverse' 
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          paddingHorizontal: "3%",
         })} >
-          <Text style={{ fontSize: 65, textAlign: "right", paddingRight: 10, paddingLeft: 5, paddingTop: 5 }}>👤</Text>
-          <MaskedView
+          <View>
+            <MaskedView
             maskElement={
               <Text style={{ fontSize: 30, color: 'white', paddingRight: 90, justifyContent: 'flex-start', paddingTop: 7, fontWeight: "bold"  }}>Profile</Text>
             }
@@ -133,8 +139,11 @@ export default function HomeScreen() {
             >
               <Text style={{ fontSize: 30, paddingRight: 90, justifyContent: 'flex-start', paddingTop: 7, fontWeight: "bold", opacity: 0  }}>Profile</Text>
             </LinearGradient>
-            </MaskedView> 
+            </MaskedView>
+
             <Text style={{ fontSize: 15, color: 'white', opacity: 0.8 }}>Press to see your profile!</Text>
+          </View>
+          <Text style={{ fontSize: 65, textAlign: "right", paddingRight: 10, paddingLeft: 5, paddingTop: 5 }}>👤</Text>
         </Pressable>
         <View style={{ backgroundColor: '#832f2f9a', borderRadius: 10, marginBottom: 10, width: '100%', height: '23%', flexDirection: 'column', flexWrap: 'wrap-reverse' }} >
           <Text style={{ fontSize: 65, textAlign: "right", paddingRight: 10, paddingLeft: 5, paddingTop: 5 }}>🛠️</Text>
