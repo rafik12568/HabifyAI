@@ -1,8 +1,8 @@
-import { View, Text, Pressable, FlatList, Modal, TextInput } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import MaskedView from "@react-native-masked-view/masked-view";
 import { LinearGradient } from "expo-linear-gradient";
-import { useState, useEffect } from "react";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import { useEffect, useState } from "react";
+import { FlatList, Modal, Pressable, Text, TextInput, View } from "react-native";
 
 export default function HabitsScreen() {
     const [habits, setHabits] = useState<
@@ -53,7 +53,7 @@ export default function HabitsScreen() {
     }, [habits]);
 
   return (
-    <View style={{ flex: 1, alignItems: "center", backgroundColor: '#181515ff' }}>
+    <View style={{ flex: 1, alignItems: "center", backgroundColor: '#301515ff' }}>
       <MaskedView
         maskElement={
           <Text
@@ -69,7 +69,7 @@ export default function HabitsScreen() {
         }
       >
         <LinearGradient
-          colors={["#DFA196", "#B75B56", "#7B141E"]}
+          colors={["#DFA196", "#521c19ff", "#7B141E"]}
           start={{ x: 0, y: 1 }}
           end={{ x: 1, y: 2}}
         >
@@ -86,11 +86,11 @@ export default function HabitsScreen() {
         </LinearGradient>
       </MaskedView>
 
-      <View style={{ width: '90%', height: '75%', backgroundColor: '#2C2626', borderRadius: 10, padding: '5%', alignItems: 'center' }}>
+      <View style={{ width: '90%', height: '75%', backgroundColor: '#411e1eff', borderRadius: 10, padding: '5%', alignItems: 'center' }}>
         <Pressable
           onPress={() => setIsModalVisible(true)}
           style={({ pressed }) => ({
-            backgroundColor: pressed ? '#2A2222' : '#3A3030',
+            backgroundColor: pressed ? '#4d1c1cce' : '#832f2f9a',
             borderRadius: 5,
             marginBottom: 10,
             width: '55%',
@@ -106,7 +106,7 @@ export default function HabitsScreen() {
         <FlatList
           style={{ width: '95%',
             height: '80%',
-            backgroundColor: '#383232ff',
+            backgroundColor: '#832f2f9a',
             borderRadius: 10,
           }}
           data={habits}

@@ -1,8 +1,8 @@
+import { userName } from "@/utils/storage";
 import MaskedView from "@react-native-masked-view/masked-view";
 import { LinearGradient } from "expo-linear-gradient";
-import { Text, View, Pressable, Image } from "react-native";
-import { userName } from "@/utils/storage";
 import { useEffect, useMemo, useState } from "react";
+import { Image, Pressable, Text, View } from "react-native";
 
 export default function ProfileScreen() {
   const [name, setName] = useState<string>("");
@@ -28,7 +28,7 @@ export default function ProfileScreen() {
   const firstLetter = name.trim().charAt(0).toUpperCase() || "U";
 
   return (
-    <View style={{ flex: 1, alignItems: "center", backgroundColor: "#181515ff" }}>
+    <View style={{ flex: 1, alignItems: "center", backgroundColor: '#301515ff' }}>
       <MaskedView
         maskElement={
           <Text
@@ -66,7 +66,7 @@ export default function ProfileScreen() {
         style={{
           width: "90%",
           height: "70%",
-          backgroundColor: "#2C2626",
+          backgroundColor: '#411e1eff',
           borderRadius: 10,
           padding: "5%",
           marginTop: 30,
@@ -78,7 +78,7 @@ export default function ProfileScreen() {
           style={{
             width: "100%",
             height: "30%",
-            backgroundColor: "#3A3030",
+            backgroundColor: '#832f2f9a',
             borderRadius: 5,
             flexDirection: "row",
             justifyContent: "space-around",
@@ -109,7 +109,7 @@ export default function ProfileScreen() {
           style={{
             width: "100%",
             height: "30%",
-            backgroundColor: "#3A3030",
+            backgroundColor: '#832f2f9a',
             borderRadius: 5,
             flexDirection: "row",
             padding: 20,
@@ -124,7 +124,7 @@ export default function ProfileScreen() {
         style={{
             width: "100%",
             height: "30%",
-            backgroundColor: "#3A3030",
+            backgroundColor: '#832f2f9a',
             borderRadius: 5,
             flexDirection: "row",
             padding: 20,
@@ -133,7 +133,7 @@ export default function ProfileScreen() {
         }}
         >
           <Text style={{ color: "white", fontSize: 15, textAlign: "center", width: "60%" }}>🔗🏆Share your achievements!</Text>
-          <Pressable style={{ backgroundColor: "#4A4040", borderRadius: 30, padding: 10, height: 60, width: 60, justifyContent: "center", alignItems: "center" }}>
+          <Pressable style={{ backgroundColor: '#7c1c1c9a', borderRadius: 30, padding: 10, height: 60, width: 60, justifyContent: "center", alignItems: "center" }}>
             <Image
               source={{ uri: "https://cdn-icons-png.flaticon.com/512/107/107784.png" }}
               style={{ width: 30, height: 30 }}
