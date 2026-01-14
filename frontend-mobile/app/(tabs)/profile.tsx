@@ -133,7 +133,7 @@ export default function ProfileScreen() {
         }}
         >
           <Text style={{ color: "white", fontSize: 15, textAlign: "center", width: "60%" }}>🔗🏆Share your achievements!</Text>
-          <Pressable style={{ backgroundColor: '#7c1c1c9a', borderRadius: 30, padding: 10, height: 60, width: 60, justifyContent: "center", alignItems: "center" }}>
+          <Pressable style={{ backgroundColor: '#ca86869a', borderRadius: 30, padding: 10, height: 60, width: 60, justifyContent: "center", alignItems: "center" }}>
             <Image
               source={{ uri: "https://cdn-icons-png.flaticon.com/512/107/107784.png" }}
               style={{ width: 30, height: 30 }}

@@ -1,9 +1,10 @@
 import { isFirstRun, userName } from "@/utils/storage";
 import MaskedView from "@react-native-masked-view/masked-view";
 import { LinearGradient } from "expo-linear-gradient";
-import { router } from "expo-router";
-import { useEffect, useState } from "react";
-import { Pressable, Text, View } from 'react-native';
+import { router, useFocusEffect } from "expo-router";
+import { useEffect, useState, useCallback } from "react";
+import { Pressable, Text, View, FlatList } from 'react-native';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function HomeScreen() {
   const [name, setName] = useState<string | null>(null);
@@ -25,12 +26,26 @@ export default function HomeScreen() {
   }, []);
 
   const displayName = name && name.trim() ? name : "User";
+
+  const [habits, setHabits] = useState<{ id: string; title: string }[]>([]);
+
+  useFocusEffect(
+    useCallback(() => {
+      const loadHabits = async () => {
+        const saved = await AsyncStorage.getItem("habits");
+        setHabits(saved ? JSON.parse(saved) : []);
+      };
+
+      loadHabits();
+    }, [])
+  );
+
   return (
     <View style={{ flex: 1, alignItems: "center", backgroundColor: '#301515ff' }}>
       <View style={{ marginTop: 35, width: '90%', height: '10%', backgroundColor: '#411e1eff', borderRadius: 10 }}>
         {/* tu przed napisem powitalnym ma byc zdjecie profilowe uzytkownika prowadzace do profilu */}
         <MaskedView
-          style={{ width: "100%", alignItems: "flex-start"}}
+          style={{ width: "100%", alignItems: "flex-start", justifyContent: "center" }}
           maskElement={
             <Text
               style={{
@@ -66,7 +81,7 @@ export default function HomeScreen() {
         {/* tutaj w prawym górnym ikonka dzwonka z ustawieniami powiadomień */}
       </View>
       <View style={{ marginTop: 15, width: '90%', height: '80%', backgroundColor: '#411e1eff', borderRadius: 10, padding: '5%', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'space-around' }}>
-        <View style={{ backgroundColor: '#832f2f9a', borderRadius: 10, marginBottom: 10, width: '100%', height: '23%', flexDirection: 'row', justifyContent: 'space-around', paddingHorizontal: "3%" }}>
+        <View style={{ backgroundColor: '#832f2f9a', borderRadius: 10, marginBottom: 10, width: '100%', height: '19%', flexDirection: 'row', justifyContent: 'space-around', paddingHorizontal: "3%" }}>
           <View>
               <MaskedView
             maskElement={
@@ -92,7 +107,7 @@ export default function HomeScreen() {
           borderRadius: 10,
           marginBottom: 10,
           width: '100%',
-          height: '23%',
+          height: '35%',
           flexDirection: 'row',
           justifyContent: 'space-around',
           paddingHorizontal: "3%",
@@ -113,6 +128,27 @@ export default function HomeScreen() {
             </MaskedView> 
 
             <Text style={{ fontSize: 15, color: 'white', opacity: 0.8 }}>Press to see your habits!</Text>
+
+            <View style={{ marginTop: 6, marginLeft: '5%' }}>
+              {habits.length === 0 ? (
+                <Text style={{ color: "rgba(255,255,255,0.6)", fontSize: 14 }}>
+                  No habits yet
+                </Text>
+              ) : (
+                habits.slice(0, 3).map(habit => (
+                  <Text
+                    key={habit.id}
+                    style={{
+                      color: "white",
+                      fontSize: 14,
+                      opacity: 0.85,
+                    }}
+                  >
+                    • {habit.title}
+                  </Text>
+                ))
+              )}
+            </View>
           </View>
           <Text style={{ fontSize: 65, textAlign: "right", paddingRight: 10, paddingLeft: 5, paddingTop: 10 }}>✅</Text>
         </Pressable>
@@ -125,6 +161,7 @@ export default function HomeScreen() {
           flexDirection: 'row',
           justifyContent: 'space-around',
           paddingHorizontal: "3%",
+          height: '19%',
         })} >
           <View>
             <MaskedView
@@ -145,10 +182,12 @@ export default function HomeScreen() {
           </View>
           <Text style={{ fontSize: 65, textAlign: "right", paddingRight: 10, paddingLeft: 5, paddingTop: 5 }}>👤</Text>
         </Pressable>
-        <View style={{ backgroundColor: '#832f2f9a', borderRadius: 10, marginBottom: 10, width: '100%', height: '23%', flexDirection: 'column', flexWrap: 'wrap-reverse' }} >
+        <View style={{ backgroundColor: '#832f2f9a', borderRadius: 10, marginBottom: 10, width: '100%', height: '19%', flexDirection: 'row', justifyContent: 'space-around', paddingHorizontal: '3%', paddingVertical: '3%' }} >
+          <View>
+            <Text style={{ fontSize: 20, color: 'white', paddingRight: 0, justifyContent: 'flex-start', paddingTop: 7, fontWeight: "bold" }}>Work in progress...</Text>
+            <Text style={{ fontSize: 15, color: 'white', opacity: 0.5 }}>Building...</Text>
+          </View>
           <Text style={{ fontSize: 65, textAlign: "right", paddingRight: 10, paddingLeft: 5, paddingTop: 5 }}>🛠️</Text>
-          <Text style={{ fontSize: 20, color: 'white', paddingRight: 0, justifyContent: 'flex-start', paddingTop: 7, fontWeight: "bold" }}>Work in progress...</Text>
-          <Text style={{ fontSize: 15, color: 'white', opacity: 0.5 }}>Building...</Text>
         </View>
       </View>
     </View>
